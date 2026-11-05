@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Gala IUT Lille//Site 2027//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:gala-iut-lille-2027@gala-iut-lille.fr
+DTSTAMP:20261105T100000Z
+DTSTART:20270212T190000Z
+DTEND:20270213T020000Z
+SUMMARY:Gala de l'IUT 2027 · Nuit étoilée
+LOCATION:Salle des fêtes du Fort\, 4 rue de Normandie\, 59370 Mons-en-Barœul
+DESCRIPTION:Ouverture des portes à 19h30. Tenue de soirée. https://gala-iut-lille.fr
+URL:https://gala-iut-lille.fr
+END:VEVENT
+END:VCALENDAR
