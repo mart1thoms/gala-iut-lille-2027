@@ -5,55 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gala de l'IUT 2027 · Nuit étoilée</title>
   <meta name="description" content="Le Gala de l'IUT de Lille revient le 12 février 2027 à la Salle des fêtes du Fort de Mons, sur le thème « Nuit étoilée ». Infos, billetterie et FAQ.">
-  <meta name="theme-color" content="#020202">
+  <meta name="theme-color" content="#050a1f">
   <meta property="og:title" content="Gala de l'IUT 2027 · Nuit étoilée">
-  <meta property="og:description" content="12 février 2027 · Salle des fêtes du Fort, Mons-en-Barœul · 19h30 – 3h">
+  <meta property="og:description" content="12 février 2027 · Salle des fêtes du Fort, Mons-en-Barœul · 20h – 3h">
   <meta property="og:image" content="https://gala-iut-lille.fr/img/logo.png">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="img/logo-gala.svg">
   <link rel="icon" type="image/png" href="img/logo-gala.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Dancing+Script:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;600&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Fond : nuit noire étoilée qui devient « La Nuit étoilée » de Van Gogh au fil du défilement -->
   <div class="bg" aria-hidden="true">
     <div class="bg-painting"></div>
     <canvas id="sky"></canvas>
-    <div class="bg-glow bg-glow-blue"></div>
-    <div class="bg-glow bg-glow-gold"></div>
     <div class="bg-veil"></div>
-    <div class="bg-grain"></div>
   </div>
 
   <header class="nav" id="nav">
-    <a class="nav-brand" href="#accueil">GALA IUT</a>
-    <nav class="nav-links" aria-label="Navigation principale">
-      <a class="nav-link" href="#infos">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
-        Infos
-      </a>
-      <a class="btn btn-gold btn-sm" href="#billetterie">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M13 6v12" stroke-dasharray="2 2"/></svg>
-        Billetterie
-      </a>
+    <a class="nav-brand" href="#accueil" aria-label="Retour en haut">
+      <img src="img/logo-gala.svg" alt="" width="50" height="44">
+      <span>Gala IUT</span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+      <ul id="nav-links">
+        <li><a href="#infos">Infos</a></li>
+        <li><a href="#inclus">Inclus</a></li>
+        <li><a href="#securite">Sécurité</a></li>
+        <li><a href="#acces">Accès</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="nav-cta" href="#billetterie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/></svg>Billetterie</a></li>
+      </ul>
     </nav>
   </header>
 
   <main>
     <!-- Accueil -->
     <section class="hero" id="accueil">
-      <p class="hero-kicker reveal">L'Asso Gala de l'IUT de Lille présente</p>
-      <img class="hero-logo reveal" src="img/logo-gala.png" alt="Le Gala de l'IUT" width="305" height="272">
-      <p class="hero-theme reveal">Thème Nuit étoilée</p>
-      <span class="hero-rule reveal" aria-hidden="true"></span>
-      <p class="hero-date reveal">12 février 2027</p>
-      <p class="hero-hours reveal">19h30 – 3h</p>
-      <p class="countdown reveal" id="countdown" aria-label="Compte à rebours avant le Gala"></p>
+      <div class="hero-content">
+        <p class="hero-kicker reveal">L'Asso Gala de l'IUT de Lille présente</p>
+        <img class="hero-logo reveal" src="img/logo-gala.svg" alt="Le Gala de l'IUT" width="1124" height="992">
+        <h1 class="hero-theme reveal"><span>Thème</span> Nuit étoilée</h1>
+        <p class="hero-date reveal">
+          <span>12 février 2027</span>
+          <span class="dot" aria-hidden="true">✦</span>
+          <span>19h30 – 3h</span>
+          <span class="dot" aria-hidden="true">✦</span>
+          <span>Fort de Mons</span>
+        </p>
+        <div class="countdown reveal" id="countdown" aria-live="off">
+          <div><strong data-unit="jours">–</strong><span>jours</span></div>
+          <div><strong data-unit="heures">–</strong><span>heures</span></div>
+          <div><strong data-unit="minutes">–</strong><span>minutes</span></div>
+          <div><strong data-unit="secondes">–</strong><span>secondes</span></div>
+        </div>
+        <div class="hero-actions reveal">
+          <a class="btn btn-gold" href="#billetterie">Billetterie</a>
+          <a class="btn btn-ghost" href="gala-iut-lille-2027.ics" download>Ajouter au calendrier</a>
+        </div>
+      </div>
       <a class="scroll-hint" href="#infos" aria-label="Voir les informations">
-        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        <span></span>
       </a>
     </section>
 
@@ -62,39 +78,39 @@
       <div class="container">
         <header class="section-head reveal">
           <h2>Informations</h2>
-          <p class="subtitle">Tout ce que vous devez savoir pour la soirée.</p>
+          <p class="lead">Tout ce que vous devez savoir pour la soirée.</p>
         </header>
-        <div class="info-grid">
+        <div class="grid info-grid">
           <article class="card reveal">
-            <span class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            </div>
             <h3>Date</h3>
-            <p>Vendredi 12 février 2027</p>
+            <p class="big">Vendredi 12 février 2027</p>
           </article>
           <article class="card reveal">
-            <span class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
             <h3>Horaires</h3>
-            <p>20h00 – 03h00</p>
-            <p class="muted">Ouverture des portes 19h30</p>
+            <p class="big">20h00 – 03h00</p>
+            <p>Ouverture des portes à 19h30</p>
           </article>
           <article class="card reveal">
-            <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
             <h3>Lieu</h3>
-            <p>Salle des fêtes du Fort</p>
-            <p class="muted">4 rue de Normandie<br>59370 Mons-en-Barœul</p>
+            <p class="big">Salle des fêtes du Fort</p>
+            <p>4 rue de Normandie, 59370 Mons-en-Barœul</p>
           </article>
           <article class="card reveal">
-            <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M8 3l4 3 4-3 4 4-3 3v11H7V10L4 7z"/></svg></span>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 3l4 3 4-3 4 4-3 3v11H7V10L4 7z"/></svg>
+            </div>
             <h3>Dress code</h3>
-            <p>Tenue de soirée</p>
-          </article>
-        </div>
-
-        <div class="map-card reveal">
-          <div id="map" role="img" aria-label="Carte : Salle des fêtes du Fort, Mons-en-Barœul, arrêt Fort de Mons de la ligne 2 du métro"></div>
-          <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Salle+des+f%C3%AAtes+du+Fort,+4+rue+de+Normandie,+Mons-en-Bar%C5%93ul" target="_blank" rel="noopener">
-            Ouvrir dans Google Maps
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
-          </a>
+            <p class="big">Tenue de soirée</p>
+                      </article>
         </div>
       </div>
     </section>
@@ -103,47 +119,34 @@
     <section class="section" id="inclus">
       <div class="container">
         <header class="section-head reveal">
-          <h2>Inclus dans ton billet</h2>
-          <p class="subtitle">Une seule chose à prévoir : ta plus belle tenue.</p>
+          <p class="eyebrow">Ton billet</p>
+          <h2>Ce qui est inclus</h2>
+          <p class="lead">Une seule chose à prévoir : ta plus belle tenue.</p>
         </header>
-        <ul class="included reveal">
-          <li>
-            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
-            <strong>La soirée</strong><span>DJ et piste de danse jusqu'à 3h</span>
-          </li>
-          <li>
-            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M7 3h10l-1 18H8z"/><path d="M7.5 9h9"/></svg></span>
-            <strong>Softs à volonté</strong><span>Toute la nuit, pour tout le monde</span>
-          </li>
-          <li>
-            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0z"/><path d="M12 13v8M8 21h8"/></svg></span>
-            <strong>4 boissons alcoolisées</strong><span>Sur ton bracelet, avec les billets «&nbsp;alcool&nbsp;»</span>
-          </li>
-          <li>
-            <span class="inc-icon"><svg viewBox="0 0 24 24"><path d="M12 6a2 2 0 1 0-2-2"/><path d="M12 6v2l9 7H3l9-7"/></svg></span>
-            <strong>Vestiaire</strong><span>Pour ton manteau et tes affaires</span>
-          </li>
-          <li>
-            <span class="inc-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15" rx="2"/><path d="M4 11h16M7 21l1-3M17 21l-1-3"/><circle cx="8" cy="14.5" r=".8"/><circle cx="16" cy="14.5" r=".8"/></svg></span>
-            <strong>Navette retour</strong><span>Pour rentrer en sécurité</span>
-          </li>
-        </ul>
+        <div class="grid included">
+          <article class="feature reveal"><h3>La soirée</h3><p>DJ et piste de danse jusqu'à 3h.</p></article>
+          <article class="feature reveal"><h3>Softs à volonté</h3><p>Toute la nuit, pour tout le monde.</p></article>
+          <article class="feature reveal"><h3>4 boissons alcoolisées</h3><p>Directement sur ton bracelet, avec les billets «&nbsp;alcool&nbsp;».</p></article>
+          <article class="feature reveal"><h3>Vestiaire</h3><p>Pour ton manteau et tes affaires.</p></article>
+          <article class="feature reveal"><h3>Navette retour</h3><p>Pour rentrer en sécurité en fin de soirée.</p></article>
+        </div>
       </div>
     </section>
 
     <!-- Sécurité & prévention -->
-    <section class="section" id="securite">
+    <section class="section section-safety" id="securite">
       <div class="container">
         <header class="section-head reveal">
+          <p class="eyebrow">On veille sur toi</p>
           <h2>Sécurité &amp; prévention</h2>
-          <p class="subtitle">Une nuit à fond, et tout le monde rentre entier.</p>
+          <p class="lead">Une nuit à fond, et tout le monde rentre entier.</p>
         </header>
-        <div class="safety reveal">
-          <div class="safety-intro">
-            <p class="safety-title">Passe au stand prévention&nbsp;!</p>
-            <p>Bouchons d'oreilles, protège-verres, sifflets anti-relou : tout est en libre-service et gratuit. Un doute sur ton verre&nbsp;? On t'aide à le tester. Et pour la route, l'équipe t'explique comment rentrer sans risque.</p>
+        <div class="safety">
+          <div class="safety-intro reveal">
+            <h3>Passe au stand prévention&nbsp;!</h3>
+            <p>Bouchons d'oreilles, protège-verres, sifflets anti-relou&nbsp;: tout est en libre-service et gratuit. Un doute sur ton verre&nbsp;? On t'aide à le tester. Et pour la route, l'équipe t'explique comment rentrer sans risque.</p>
           </div>
-          <ul class="safety-list">
+          <ul class="safety-list reveal">
             <li><strong>Safe Zone</strong> Un espace calme pour souffler, faire une pause ou attendre un·e ami·e.</li>
             <li><strong>Secouristes</strong> Une équipe de la Protection civile présente toute la nuit.</li>
             <li><strong>Équipe sécurité &amp; bénévoles</strong> Un comportement relou, un souci&nbsp;? Viens nous voir, on agit tout de suite.</li>
@@ -153,56 +156,17 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container narrow">
-        <header class="section-head reveal">
-          <h2>FAQ</h2>
-        </header>
-        <div class="faq reveal">
-          <details>
-            <summary>Qui peut venir au Gala&nbsp;?</summary>
-            <p>Les étudiants de l'Université de Lille et leurs invités, ainsi que les personnels. Les mineurs sont les bienvenus avec le billet «&nbsp;Sans alcool / Mineur&nbsp;».</p>
-          </details>
-          <details>
-            <summary>Que faut-il présenter à l'entrée&nbsp;?</summary>
-            <p>Ton billet (le QR code reçu par mail, sur ton téléphone ou imprimé) et une carte étudiante et/ou une pièce d'identité.</p>
-          </details>
-          <details>
-            <summary>Comment fonctionne le bracelet&nbsp;?</summary>
-            <p>Après le scan de ton billet, on te remet un bracelet. Avec un billet «&nbsp;alcool&nbsp;», il contient tes 4 boissons alcoolisées : au bar, tu le présentes et une boisson est décomptée. Les softs restent à volonté. Garde-le au poignet toute la soirée.</p>
-          </details>
-          <details>
-            <summary>J'ai perdu mon bracelet, que faire&nbsp;?</summary>
-            <p>Va voir un responsable près du bar avec ton billet : il bloque l'ancien bracelet et t'en remet un nouveau avec les boissons qu'il te restait.</p>
-          </details>
-          <details>
-            <summary>Peut-on acheter des boissons sur place&nbsp;?</summary>
-            <p>Non, aucun paiement pendant la soirée : les 4 boissons alcoolisées sont comprises dans le billet et les softs sont à volonté.</p>
-          </details>
-          <details>
-            <summary>Comment rentrer après la soirée&nbsp;?</summary>
-            <p>Des navettes retour sont prévues en fin de soirée et incluses dans tous les billets. Les horaires et les arrêts seront communiqués avant le Gala sur notre Instagram.</p>
-          </details>
-          <details>
-            <summary>Puis-je me faire rembourser ou revendre mon billet&nbsp;?</summary>
-            <p>Les billets ne sont ni échangeables ni remboursables, sauf en cas de force majeure. Chaque billet ne peut être utilisé qu'une seule fois.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
     <!-- Billetterie -->
-    <section class="section" id="billetterie">
+    <section class="section section-tickets" id="billetterie">
       <div class="container">
         <header class="section-head reveal">
-          <h2 class="gold-title">Billetterie</h2>
-          <p class="subtitle">Les places sont limitées. Réserve dès l'ouverture pour garantir ton accès à la soirée la plus attendue de l'année.</p>
+          <h2>Billetterie</h2>
+          <p class="lead">Les places sont limitées. Réserve dès l'ouverture pour garantir ton accès à la soirée la plus attendue de l'année.</p>
         </header>
-        <div class="ticket-grid">
+        <div class="grid ticket-grid">
           <article class="ticket reveal">
             <h3>Étudiant sans alcool / Mineur</h3>
-            <p class="price"><strong>18€</strong> / personne</p>
+            <p class="price"><strong>18&nbsp;€</strong><span>/ personne</span></p>
             <ul>
               <li>Accès à la soirée</li>
               <li>Softs illimités</li>
@@ -211,8 +175,10 @@
             </ul>
           </article>
           <article class="ticket ticket-featured reveal">
+            <p class="ticket-badge">Le plus choisi</p>
             <h3>Étudiant</h3>
-            <p class="price"><strong>20€</strong> / personne</p>
+            <p class="ticket-sub">Université de Lille</p>
+            <p class="price"><strong>20&nbsp;€</strong><span>/ personne</span></p>
             <ul>
               <li>Accès à la soirée</li>
               <li>Softs illimités</li>
@@ -223,7 +189,7 @@
           </article>
           <article class="ticket reveal">
             <h3>Personnel / Extérieur</h3>
-            <p class="price"><strong>25€</strong> / personne</p>
+            <p class="price"><strong>25&nbsp;€</strong><span>/ personne</span></p>
             <ul>
               <li>Accès à la soirée</li>
               <li>Softs illimités</li>
@@ -235,7 +201,71 @@
         </div>
         <div class="tickets-cta reveal">
           <a class="btn btn-gold btn-lg" id="ticketing" href="#billetterie" aria-disabled="true">Ouverture prochaine</a>
-          <p class="note">Une carte étudiante et/ou une pièce d'identité sera demandée à l'entrée.<br>Les billets ne sont ni échangeables ni remboursables sauf en cas de force majeure.</p>
+          <p class="small">Une carte étudiante et/ou une pièce d'identité sera demandée à l'entrée.<br>Les billets ne sont ni échangeables ni remboursables, sauf en cas de force majeure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accès -->
+    <section class="section" id="acces">
+      <div class="container access-layout">
+        <div class="reveal">
+          <p class="eyebrow">Venir</p>
+          <h2>Accès</h2>
+          <p class="lead">Salle des fêtes du Fort<br>4 rue de Normandie, 59370 Mons-en-Barœul</p>
+          <ul class="access-list">
+            <li><strong>Métro</strong> ligne 2, arrêt <em>Fort de Mons</em>, à deux pas de la salle.</li>
+            <li><strong>Retour</strong> en navette en fin de soirée, inclus dans votre billet.</li>
+            <li><strong>Ce soir-là</strong>, on laisse la voiture au garage : la soirée se termine à 3h.</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Salle+des+f%C3%AAtes+du+Fort,+4+rue+de+Normandie,+Mons-en-Bar%C5%93ul" target="_blank" rel="noopener">Ouvrir dans Google Maps</a>
+        </div>
+        <div class="map-frame reveal">
+          <div id="map" role="img" aria-label="Carte : Salle des fêtes du Fort, Mons-en-Barœul"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <header class="section-head reveal">
+          <p class="eyebrow">Questions</p>
+          <h2>FAQ</h2>
+        </header>
+        <div class="faq reveal">
+          <details>
+            <summary>Qui peut venir au Gala&nbsp;?</summary>
+            <p>Le Gala est ouvert aux étudiants de l'Université de Lille et à leurs invités, ainsi qu'aux personnels. Les mineurs sont les bienvenus avec le billet «&nbsp;Sans alcool / Mineur&nbsp;».</p>
+          </details>
+          <details>
+            <summary>Que faut-il présenter à l'entrée&nbsp;?</summary>
+            <p>Votre billet (le QR code reçu par mail, sur votre téléphone ou imprimé) et une carte étudiante et/ou une pièce d'identité.</p>
+          </details>
+          <details>
+            <summary>Comment fonctionne le bracelet&nbsp;?</summary>
+            <p>Après le scan de votre billet, un bénévole vous remet un bracelet. Avec un billet «&nbsp;alcool&nbsp;», il contient vos 4 boissons alcoolisées : au bar, vous le présentez et une boisson est décomptée. Les softs restent à volonté. Gardez-le au poignet toute la soirée.</p>
+          </details>
+          <details>
+            <summary>J'ai perdu mon bracelet, que faire&nbsp;?</summary>
+            <p>Allez voir un responsable près du bar avec votre billet : il peut bloquer l'ancien bracelet et vous en remettre un nouveau avec les boissons qu'il vous restait.</p>
+          </details>
+          <details>
+            <summary>Peut-on acheter des boissons supplémentaires sur place&nbsp;?</summary>
+            <p>Non, aucun paiement n'a lieu pendant la soirée : les 4 boissons alcoolisées sont comprises dans le billet, et les softs sont à volonté.</p>
+          </details>
+          <details>
+            <summary>Comment rentrer après la soirée&nbsp;?</summary>
+            <p>Des navettes retour sont prévues en fin de soirée et incluses dans tous les billets. Les horaires et les arrêts seront communiqués avant le Gala sur notre Instagram.</p>
+          </details>
+          <details>
+            <summary>Puis-je me faire rembourser ou revendre mon billet&nbsp;?</summary>
+            <p>Les billets ne sont ni échangeables ni remboursables, sauf en cas de force majeure. Chaque billet est nominatif et ne peut être utilisé qu'une seule fois.</p>
+          </details>
+          <details>
+            <summary>Je ne me sens pas bien pendant la soirée&nbsp;?</summary>
+            <p>Rendez-vous à la Safe Zone ou parlez à n'importe quel bénévole ou agent de sécurité : une équipe de secouristes est présente toute la nuit.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -243,16 +273,17 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="partners">
-        <img src="img/logo_univ_iut.png" alt="IUT · Université de Lille" height="44">
-        <img src="img/cvec.svg" alt="Financé par la CVEC" height="44">
-      </div>
+      <img src="img/logo-gala.svg" alt="Le Gala de l'IUT" width="140" height="124">
       <div class="footer-links">
         <a href="https://www.instagram.com/gala_iut_lille/" target="_blank" rel="noopener">Instagram</a>
         <a href="mailto:gala.iutlille@gmail.com">gala.iutlille@gmail.com</a>
         <a href="mentions-legales.html">Mentions légales</a>
       </div>
-      <p class="note">© 2027 Gala IUT Lille · Fond : Vincent van Gogh, <em>La Nuit étoilée</em> (1889), domaine public</p>
+      <div class="partners">
+        <img src="img/logo_univ_iut.png" alt="IUT · Université de Lille" height="40">
+        <img src="img/cvec.svg" alt="Financé par la CVEC" height="40">
+      </div>
+      <p class="small">© 2027 Gala IUT Lille · Fond : Vincent van Gogh, <em>La Nuit étoilée</em> (1889), domaine public</p>
     </div>
   </footer>
 
